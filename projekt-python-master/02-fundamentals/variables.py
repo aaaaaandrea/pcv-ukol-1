@@ -28,10 +28,14 @@ Některé objekty mohou mít explicitně přiřazené jméno, obecně označovan
 '''
 
 '''Úkol A'''
-#? Najděte na Internetu, jakými funkcemi lze v Pythonu zjistit
-#? a) typ objektu
-#? b) identitu objektu (jeho adresu v paměti)
-#? Ukažte to na příkladech proměnných students_count, rating, is_published a vypište výstupy do konzole
+# ? Najděte na Internetu, jakými funkcemi lze v Pythonu zjistit
+# ? a) typ objektu   type()
+# ? b) identitu objektu (jeho adresu v paměti) id()
+# ? Ukažte to na příkladech proměnných students_count, rating, is_published a vypište výstupy do konzole
+
+print('students_cout type: ' + str(type(students_count)) + '  id: ' + str(id(students_count)))
+print('rating type: ' + str(type(rating)) + '  id: ' + str(id(rating)))
+print('is_published type: ' + str(type(is_published)) + '  id: ' + str(id(is_published)))
 
 # Numerické operátory
 # print(10 + 3)
@@ -48,10 +52,10 @@ Některé objekty mohou mít explicitně přiřazené jméno, obecně označovan
 '''
 Příklady použití numerických literálů (numeric literals)
 '''
-binary = 0b1010 #Binary Literals
-octal = 0o310 #Octal Literal
-decimal = 100 #Decimal Literal
-hexadecimal = 0x12c #Hexadecimal Literal
+binary = 0b1010  # Binary Literals
+octal = 0o310  # Octal Literal
+decimal = 100  # Decimal Literal
+hexadecimal = 0x12c  # Hexadecimal Literal
 
 # print(binary, octal, decimal, hexadecimal)
 # Převod desítkového čísla na binární, oktalové a hexadecimální
@@ -65,30 +69,37 @@ hexadecimal = 0x12c #Hexadecimal Literal
 
 
 '''Úkol B'''
-#? Vypište do poznámky všechny bitové operátory, které nabízí Python
-#? Do proměnné myself_binary uložte binární číslo vytvořené na základě osmi prvních znaků z vašeho jména a příjmení (souhláska = 1, samohláska 0)
-#? Příklad - HildaDok: 10110101
-#? Vypište toto binární číslo v desítkové soustavě
-#? Pro toto binární číslo proveďte nejprve bitový posun o 2 bity vpravo, poté vypište výsledek v desítkové soustavě
-#? Proveďte bitový součin hexadecimálního čísla "1A" a vašeho binárního čísla a opět vypište v desítkové soustavě
-#? Výsledek zobrazte jako formátovaný řetězec - např. "Binární součin čísla 0b11010 a 0b10110101 je 0b10000"
-
+# ? Vypište do poznámky všechny bitové operátory, které nabízí Python
+#   & | ^ ~ << >>
+# ? Do proměnné myself_binary uložte binární číslo vytvořené na základě osmi prvních znaků
+#   z vašeho jména a příjmení (souhláska = 1, samohláska 0)
+myself_binary = 0b01110010
+# ? Příklad - HildaDok: 10110101
+# ? Vypište toto binární číslo v desítkové soustavě
+print(int(myself_binary))
+# ? Pro toto binární číslo proveďte nejprve bitový posun o 2 bity vpravo, poté vypište výsledek v desítkové soustavě
+print(int(myself_binary>>2))
+# ? Proveďte bitový součin hexadecimálního čísla "1A" a vašeho binárního čísla a opět vypište v desítkové soustavě
+# ? Výsledek zobrazte jako formátovaný řetězec - např. "Binární součin čísla 0b11010 a 0b10110101 je 0b10000"
+vysledek= int(0x1A) * int(myself_binary)
+print('Binární součin čísla '+str(bin(0x1A))+' a '+str(bin(myself_binary))+' je '+str(bin(vysledek)))
 
 '''Python plně podporuje operace v plovoucí řádové čárce (tj. desetinná čísla). 
 Operátor pracující s různými typy operandů si nejprve zkonvertuje celá čísla na čísla 
 v plovoucí řádové čárce a následně provede výpočet (obdobné chování jako v jazyce C).
 Výsledek je vždy desetinné číslo.
 '''
-#Float Literal
+# Float Literal
 float_1 = 10.5
-float_2 = 1.5e2 # Zápis reálného čísla pomocí exponentu = 1.5 * (10 ** 2)
-#print(float_1 + float_2)
+float_2 = 1.5e2  # Zápis reálného čísla pomocí exponentu = 1.5 * (10 ** 2)
+# print(float_1 + float_2)
 
 
 # Použití vestavěných matematických funkcí
 # print(round(rating))
 # Použití importovaného modulu math a jeho metod
 import math
+
 # print(math.floor(rating))
 # print(math.cos(45))
 
@@ -102,7 +113,7 @@ import math
 '''Python plně podporuje komplexní čísla, přičemž imaginární číslo je zapisováno s příponou "j" nebo "J". 
 Komplexní čísla zapisujeme ve tvaru "(Re + Imj)" nebo je můžeme vytvořit pomocí interní funkce "complex(Re, Im)":
 '''
-#Complex Literal
+# Complex Literal
 complex = 3.14j
 
 '''Komplexní čísla jsou vždy reprezentována dvojicí desetinných čísel, reálnou a imaginární částí. 
@@ -138,5 +149,3 @@ Speciální proměnná _ reprezentuje předešlý výsledek.
 Varování: Hodnota proměnné _ by nikdy neměla být modifikována uživatelem. 
 Pokud byste jí přiřadili hodnotu, vytvořili byste nezávislou lokální proměnnou se stejným jménem, 
 která by zakryla interní proměnnou s tímto chováním.'''
-
-
